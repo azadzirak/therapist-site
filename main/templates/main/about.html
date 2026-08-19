@@ -1,0 +1,76 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block content %}
+
+{% include "main/components/navbar.html" %}
+
+<section class="bg-gray-50 py-16 sm:py-20 min-h-screen">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <p class="text-blue-600 font-semibold mb-3">
+                ABOUT THE THERAPIST
+            </p>
+
+            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">
+                A Safe Space to Understand, Heal, and Grow
+            </h1>
+
+            <p class="mt-5 text-lg text-gray-600 max-w-2xl mx-auto">
+                Professional and compassionate support tailored to your
+                individual needs and experiences.
+            </p>
+        </div>
+
+        <!-- Main Card -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-10">
+
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+
+                <!-- Image Placeholder -->
+                <div class="bg-gray-100 rounded-xl h-80 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm">
+                        Therapist Photo
+                    </span>
+                </div>
+
+                <!-- Content -->
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
+                        My Approach
+                    </h2>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        I believe therapy should provide a safe and supportive
+                        environment where you can better understand yourself,
+                        explore your experiences, and work toward meaningful change.
+                    </p>
+
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Through a compassionate and personalized approach,
+                        I work with clients to navigate challenges such as
+                        anxiety, stress, and difficult life experiences.
+                    </p>
+
+                    <a href="/appointment/"
+                       class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg
+                              font-semibold hover:bg-blue-700 transition">
+                        Book An Appointment
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% include "main/components/footer.html" %}
+
+{% endblock %}

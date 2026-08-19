@@ -1,0 +1,10 @@
+{% load static %}
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+
+    <script src="{% static 'js/main.js' %}" defer></script>
+
+{% block content %}
+{% endblock %}

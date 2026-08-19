@@ -1,0 +1,265 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+Book An Appointment
+{% endblock %}
+
+{% block content %}
+
+{% include "main/components/navbar.html" %}
+
+<section class="bg-gray-50 min-h-screen py-16 sm:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <!-- Header -->
+         <div class="text-center mb-12">
+            <p class="text-blue-600 font-semibold mb-3">
+                BOOK AN APPOINTMENT
+            </p>
+            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">
+                Let's Take the First Step
+            </h1>
+            <p class="mt-5 text-gray-600 text-lg max-w-2xl mx-auto">
+                Choose an available session and provide your information.
+                I'll get back to you to confirm your appointment.
+            </p>
+         </div>
+         <!-- Form Card -->
+          <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-10">
+            <form method="POST" class="space-y-6">
+                {% csrf_token %}
+                {% if form.errors  %}
+                <div class="
+                    mb-6
+                    rounded-xl 
+                    border border-red-200 
+                    bg-red-50 
+                    px-4 py-3 
+                    text-sm 
+                    text-red-700
+                ">
+                    <p class="font-semibold">
+                        Please check the information below. 
+                    </p>
+                    <p class="mt-1 text-red-600">
+                        One or more fields need your attention.
+                    </p>
+                </div>
+                {% endif %}
+                <!-- Name -->
+                 <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        Full Name
+                    </label>
+                    {{ form.name }}
+                    {% if form.name.errors %}
+                    <p class="text-red-600 text-sm mt-2">
+                        {{ form.name.errors.0 }}
+                    </p>
+                    {% endif %}
+                 </div>
+                 <!-- Email -->
+                  <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        Email Address
+                    </label>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                    <p class="text-red-600 text-sm mt-2">
+                        {{ form.email.errors.0 }}
+                    </p>
+                    {% endif %}
+                  </div>
+                  <!-- Phone -->
+                   <div> 
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        Phone Number
+                    </label>
+                    {{ form.phone }}
+                    {% if form.phone.errors %}
+                    <p class="text-red-600 text-sm mt-2">
+                        {{ form.phone.errors.0 }}
+                    </p>
+                    {% endif %}
+                   </div>
+                   <!-- Time Slot -->
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            Choose Your Session
+                        </label>
+                        <p class="text-sm text-gray-500 mb-5">
+                            Select an available session that works best for you.
+                        </p>
+                        
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            {% for slot in form.slot.field.queryset %}
+
+                            <label class="relative block cursor-pointer">
+                                <!-- Radio input -->
+                                <input 
+                                    type="radio"
+                                    name="slot"
+                                    value="{{ slot.id }}"
+                                    class="peer sr-only"
+                                    {% if form.slot_is_unavailable and form.data.slot == slot.id|stringformat:"s" %}
+                                        disabled
+                                    {% endif %}
+                                >
+                                <!-- Card -->
+                                <div class="
+                                    bg-white
+                                    border border-gray-200 
+                                    rounded-xl 
+                                    p-5 
+                                    transition-all duration-200 
+                                    {% if form.slot_is_unavailable and form.data.slot == slot.id|stringformat:"s" %}
+                                        opacity-60 
+                                        cursor-not-allowed
+                                        bg-gray-50 
+                                        border-gray-200 
+                                    {% else %}
+                                        hover:border-blue-300 
+                                        hover:shadow-md 
+                                        cursor-pointer
+                                        peer-checked:border-blue-500 
+                                        peer-checked:bg-blue-50 
+                                        peer-checked:ring-2 
+                                        peer-checked:ring-blue-500 
+                                    {% endif %}
+                                ">
+                                <!-- Day -->
+                                <p class="
+                                    text-sm
+                                    font-semibold
+                                    text-blue-600
+                                ">
+                                    {{ slot.date|date:"l" }}
+                                </p>
+                                <!-- Date -->
+                                <p class="
+                                    mt-1 
+                                    text-xl 
+                                    font-bold 
+                                    text-gray-900 
+                                ">
+                                    {{ slot.date|date:"F j, Y" }}
+
+                                </p>
+                                <!-- Time -->
+                                <div class="
+                                    flex 
+                                    items-center 
+                                    gap-2 
+                                    mt-4 
+                                ">
+                                    <span class="text-lg">
+                                        🕐
+                                    </span>
+                                    <span class="
+                                        text-sm 
+                                        font-medium 
+                                        text-gray-700 
+                                    ">
+                                    {{ slot.start_time|time:"g:i A" }}
+                                    - 
+                                    {{ slot.end_time|time:"g:i A" }}
+                                    </span>
+                                </div> 
+                                <!-- Availability -->
+                                <div class="
+                                    mt-4 
+                                    pt-3 
+                                    border-t 
+                                    border-gray-100     
+                                ">
+                                    {% if form.slot_is_unavailable and form.data.slot == slot.id|stringformat:"s" %}
+                                        <span class="text-xs font-medium text-red-500">
+                                            No Longer Available
+                                        </span>
+                                    {% else %}
+                                        <span class="text-xs font-medium text-gray-500">
+                                            Available Session
+                                        </span>
+                                    {% endif %}
+                            </div>
+                        </div>
+                            <!-- Selected Indicator -->
+                            <div class="
+                                absolute 
+                                top-4 
+                                right-4 
+                                z-10 
+                                w-6 
+                                h-6 
+                                rounded-full 
+                                bg-blue-600 
+                                text-white 
+                                flex 
+                                items-center 
+                                justify-center 
+                                text-sm 
+                                font-bold 
+                                opacity-0 
+                                scale-75 
+                                transition-all duration-200
+                                peer-checked:opacity-100 
+                                peer-checked:scale-100 
+                            ">
+                                ✓
+                            </div>
+                        </label>
+                    {% empty %}
+                        <div class="sm:col-span-2 py-8 text-center">
+                            <p class="text-gray-500">
+                                No available session at the moment.
+                            </p>
+                        </div>        
+                    {% endfor %}
+
+                        
+
+                    </div>
+
+                     {% if form.slot.errors %}
+                            <div class="
+                                mt-4 
+                                rounded-xl 
+                                border border-red-200 
+                                bg-red-50 
+                                px-4 py-3 
+                                flex 
+                                items-start 
+                                gap-3 
+                            ">
+                                <span class="text-red-500 text-lg leading-none">
+                                    ⚠
+                                </span>
+                                <div>
+                                    <p class="text-sm text-red-600 mt-1">
+                                        {{ form.slot.errors.0 }}
+                                    </p>
+                                </div>
+                            </div>
+                        {% endif %}
+
+                     <!-- Submit -->
+                      <div class="pt-4">
+                        <button 
+                        type="submit"
+                        class="w-full bg-blue-600 text-white font-semibold 
+                               py-3.5 rounded-xl 
+                               hover:bg-blue-700
+                               transition duration-300
+                               shadow-sm hover:shadow-md">
+                        Book Appointment
+                    </button>
+                      </div>
+            </form>
+          </div>
+          <!-- Small reassurance -->
+           <p class="text-center text-sm text-gray-500 mt-6">
+            Your information will be kept private and confidential.
+           </p>
+    </div>
+</section>
+
+{% endblock %}
