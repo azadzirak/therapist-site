@@ -28,7 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     ".pythonanywhere.com",
     "site-yc8-therapistsite.runflare.cloud",
-    "",
+    "*",
+    "site-9k7-therapistsite.runflare.cloud",
 ]
 
 
