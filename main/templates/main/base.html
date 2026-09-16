@@ -1,10 +1,36 @@
 {% load static %}
 
-    <title>{% block title %}{% endblock %}</title>
+<!DOCTYPE html>
+<html lang="en">
 
-    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+<head>
+    <meta charset="UTF-8">
 
-    <script src="{% static 'js/main.js' %}" defer></script>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-{% block content %}
-{% endblock %}
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/output.css' %}"
+    >
+
+    <script
+        src="{% static 'js/main.js' %}"
+        defer
+    ></script>
+</head>
+
+<body>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+
+</html>
