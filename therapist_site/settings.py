@@ -28,6 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://therapist-site.liara.run",
+]
+
 
 # Application definition
 
