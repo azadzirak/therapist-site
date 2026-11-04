@@ -1,0 +1,400 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-07 22:58+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\main\forms.py:16
+msgid "Your full name"
+msgstr "نام و نام خانوادگی"
+
+#: .\main\forms.py:36
+msgid "Tell me briefly about your situation..."
+msgstr "کمی درباره شرایط خود برایم بنویسید..."
+
+#: .\main\forms.py:65
+msgid "This session is no longer available."
+msgstr "این جلسه دیگر در دسترس نیست."
+
+#: .\main\forms.py:75
+msgid "This session has already been booked."
+msgstr "این جلسه قبلاً رزرو شده است."
+
+#: .\main\models.py:7
+msgid "Pending"
+msgstr "در انتظار"
+
+#: .\main\models.py:8
+msgid "Confirmed"
+msgstr "تأیید شده"
+
+#: .\main\models.py:9
+msgid "Cancelled"
+msgstr "لغو شده"
+
+#: .\main\models.py:12
+msgid "Name"
+msgstr "نام"
+
+#: .\main\models.py:13
+msgid "Email"
+msgstr "ایمیل"
+
+#: .\main\models.py:14 .\main\templates\main\appointment.html:76
+msgid "Phone Number"
+msgstr "شماره تلفن"
+
+#: .\main\models.py:20
+msgid "Slot"
+msgstr "زمان جلسه"
+
+#: .\main\models.py:23
+msgid "Message"
+msgstr "پیام"
+
+#: .\main\models.py:25
+msgid "Status"
+msgstr "وضعیت"
+
+#: .\main\models.py:27
+msgid "Created At"
+msgstr "تاریخ ایجاد"
+
+#: .\main\models.py:36
+msgid "Date"
+msgstr "تاریخ"
+
+#: .\main\models.py:37
+msgid "Start Time"
+msgstr "زمان شروع"
+
+#: .\main\models.py:38
+msgid "End Time"
+msgstr "زمان پایان"
+
+#: .\main\models.py:39
+msgid "Is Available"
+msgstr "در دسترس است"
+
+#: .\main\models.py:46
+msgid "Title"
+msgstr "عنوان"
+
+#: .\main\models.py:47
+msgid "Description"
+msgstr "توضیحات"
+
+#: .\main\models.py:48
+msgid "Icon"
+msgstr "آیکون"
+
+#: .\main\models.py:49
+msgid "Is Active"
+msgstr "فعال است"
+
+#: .\main\templates\main\about.html:5
+#: .\main\templates\main\components\footer.html:38
+#: .\main\templates\main\components\navbar.html:22
+#: .\main\templates\main\components\navbar.html:53
+msgid "About"
+msgstr "درباره"
+
+#: .\main\templates\main\about.html:18
+msgid "ABOUT THE THERAPIST"
+msgstr "درباره درمانگر"
+
+#: .\main\templates\main\about.html:22
+msgid "A Safe Space to Understand, Heal, and Grow"
+msgstr "فضایی امن برای شناخت، بهبود و رشد"
+
+#: .\main\templates\main\about.html:26
+msgid "Professional and compassionate support tailored to your"
+msgstr "حمایت حرفه ای و همدلانه متناسب با"
+
+#: .\main\templates\main\about.html:27
+msgid "individual needs and experiences."
+msgstr "نیازها و تجربه های فردی شما"
+
+#: .\main\templates\main\about.html:39
+msgid "Therapist Photo"
+msgstr "تصویر درمانگر"
+
+#: .\main\templates\main\about.html:46
+msgid "My Approach"
+msgstr "رویکرد من"
+
+#: .\main\templates\main\about.html:50
+msgid "I believe therapy should provide a safe and supportive"
+msgstr "باور دارم که درمان باید محیطی امن و حمایتگر فراهم کند"
+
+#: .\main\templates\main\about.html:51
+msgid "environment where you can better understand yourself,"
+msgstr "فراهم کند که در آن بتوانید خودتان را بهتر بشناسید،"
+
+#: .\main\templates\main\about.html:52
+msgid "explore your experiences, and work toward meaningful change."
+msgstr "تجربه هایتان را بررسی کنید و برای ایجاد تغییری معنادار گام بردارید."
+
+#: .\main\templates\main\about.html:56
+msgid "Through a compassionate and personalized approach,"
+msgstr "با رویکردی همدلانه و شخصی سازی شده."
+
+#: .\main\templates\main\about.html:57
+msgid "I work with clients to navigate challenges such as"
+msgstr "به مراجعان کمک می‌کنم با چالش‌هایی مانند"
+
+#: .\main\templates\main\about.html:58
+msgid "anxiety, stress, and difficult life experiences."
+msgstr "اضطراب، استرس و تجربه‌های دشوار زندگی مواجه شوند."
+
+#: .\main\templates\main\about.html:64 .\main\templates\main\appointment.html:5
+#: .\main\templates\main\components\cta.html:23
+msgid "Book An Appointment"
+msgstr "رزرو وقت"
+
+#: .\main\templates\main\appointment.html:17
+msgid "BOOK AN APPOINTMENT"
+msgstr "رزرو وقت"
+
+#: .\main\templates\main\appointment.html:20
+msgid "Let's Take the First Step"
+msgstr "بیایید اولین قدم را برداریم"
+
+#: .\main\templates\main\appointment.html:23
+msgid "Choose an available session and provide your information."
+msgstr "یک جلسه در دسترس را انتخاب کنید و اطلاعات خود را وارد کنید."
+
+#: .\main\templates\main\appointment.html:24
+msgid "I'll get back to you to confirm your appointment."
+msgstr "برای تأیید وقت شما با شما تماس خواهم گرفت."
+
+#: .\main\templates\main\appointment.html:42
+msgid "Please check the information below."
+msgstr "لطفاً اطلاعات زیر را بررسی کنید."
+
+#: .\main\templates\main\appointment.html:45
+msgid "One or more fields need your attention."
+msgstr "یک یا چند فیلد نیاز به بررسی دارند."
+
+#: .\main\templates\main\appointment.html:52
+msgid "Full Name"
+msgstr "نام و نام خانوادگی"
+
+#: .\main\templates\main\appointment.html:64
+msgid "Email Address"
+msgstr "آدرس ایمیل"
+
+#: .\main\templates\main\appointment.html:88
+msgid "Choose Your Session"
+msgstr "جلسه مورد نظر خود را انتخاب کنید"
+
+#: .\main\templates\main\appointment.html:91
+msgid "Select an available session that works best for you."
+msgstr "جلسه‌ای را که برای شما مناسب‌تر است از میان زمان‌های در دسترس انتخاب کنید."
+
+#: .\main\templates\main\appointment.html:177
+msgid "No Longer Available"
+msgstr "دیگر در دسترس نیست"
+
+#: .\main\templates\main\appointment.html:181
+msgid "Available Session"
+msgstr "جلسه در دسترس"
+
+#: .\main\templates\main\appointment.html:214
+msgid "No available session at the moment."
+msgstr "در حال حاضر جلسه‌ای در دسترس نیست."
+
+#: .\main\templates\main\appointment.html:254
+#: .\main\templates\main\components\footer.html:45
+#: .\main\templates\main\components\hero.html:19
+#: .\main\templates\main\components\navbar.html:27
+#: .\main\templates\main\components\navbar.html:58
+msgid "Book Appointment"
+msgstr "رزرو وقت"
+
+#: .\main\templates\main\appointment.html:261
+msgid "Your information will be kept private and confidential."
+msgstr "اطلاعات شما خصوصی و محرمانه نگه داشته خواهد شد."
+
+#: .\main\templates\main\appointment_success.html:5
+msgid "Appointment Confirmed"
+msgstr "وقت تأیید شد"
+
+#: .\main\templates\main\appointment_success.html:16
+msgid "Appointment Submitted Successfully"
+msgstr "درخواست وقت با موفقیت ثبت شد"
+
+#: .\main\templates\main\appointment_success.html:19
+msgid "Thank you for contacting us."
+msgstr "از اینکه با ما تماس گرفتید، سپاسگزاریم."
+
+#: .\main\templates\main\appointment_success.html:20
+msgid "Your appointment request has been received."
+msgstr "درخواست وقت شما دریافت شد."
+
+#: .\main\templates\main\appointment_success.html:24
+msgid "Name:"
+msgstr "نام:"
+
+#: .\main\templates\main\appointment_success.html:28
+msgid "Date:"
+msgstr "تاریخ:"
+
+#: .\main\templates\main\appointment_success.html:32
+msgid "Time:"
+msgstr "زمان:"
+
+#: .\main\templates\main\appointment_success.html:40
+msgid "Back To Home"
+msgstr "بازگشت به صفحه اصلی"
+
+#: .\main\templates\main\components\about.html:10
+msgid "Therapist Image"
+msgstr "تصویر درمانگر"
+
+#: .\main\templates\main\components\about.html:17
+msgid "About The Therapist"
+msgstr "درباره درمانگر"
+
+#: .\main\templates\main\components\about.html:21
+msgid ""
+"I believe that everyone deserves a safe and supportive environment to "
+"understand themselves and grow."
+msgstr "باور دارم که هر فردی شایسته محیطی امن و حمایتگر برای شناخت خود و رشد است."
+
+#: .\main\templates\main\components\about.html:28
+msgid ""
+"Through professional counseling and personalized approaches, I help clients "
+"navigate life's challenges."
+msgstr "با مشاوره حرفه‌ای و رویکردهای شخصی‌سازی‌شده، به مراجعان کمک می‌کنم با چالش‌های زندگی مواجه شوند."
+
+#: .\main\templates\main\components\about.html:36
+msgid "Learn More →"
+msgstr "بیشتر بدانید ←"
+
+#: .\main\templates\main\components\cta.html:6
+msgid "Ready To Start Your Journey?"
+msgstr "آماده‌اید سفر خود را آغاز کنید؟"
+
+#: .\main\templates\main\components\cta.html:11
+msgid ""
+"Book a session and take the first step toward a better understanding of "
+"yourself."
+msgstr "یک جلسه رزرو کنید و اولین قدم را برای شناخت بهتر خودتان بردارید."
+
+#: .\main\templates\main\components\features.html:8
+msgid "How I Can Help You"
+msgstr "چگونه می‌توانم به شما کمک کنم"
+
+#: .\main\templates\main\components\features.html:12
+msgid "Professional support designed around your needs."
+msgstr "حمایت حرفه‌ای متناسب با نیازهای شما."
+
+#: .\main\templates\main\components\features.html:43
+msgid "No services are currently available."
+msgstr "در حال حاضر خدماتی در دسترس نیست."
+
+#: .\main\templates\main\components\footer.html:10
+#: .\main\templates\main\components\navbar.html:10
+msgid "Therapist"
+msgstr "درمانگر"
+
+#: .\main\templates\main\components\footer.html:14
+msgid ""
+"Providing compassionate and professional psychological support to help you "
+"build a healthier and happier life."
+msgstr "ارائه حمایت روان‌شناختی حرفه‌ای و همدلانه برای کمک به شما در ساختن زندگی سالم‌تر و شادتر."
+
+#: .\main\templates\main\components\footer.html:24
+msgid "Quick Links"
+msgstr "لینک‌های سریع"
+
+#: .\main\templates\main\components\footer.html:31
+#: .\main\templates\main\components\navbar.html:17
+#: .\main\templates\main\components\navbar.html:48
+msgid "Home"
+msgstr "صفحه اصلی"
+
+#: .\main\templates\main\components\footer.html:54
+msgid "Contact"
+msgstr "تماس"
+
+#: .\main\templates\main\components\footer.html:58
+msgid "Email:"
+msgstr "ایمیل:"
+
+#: .\main\templates\main\components\footer.html:59
+msgid "Phone:"
+msgstr "تلفن:"
+
+#: .\main\templates\main\components\footer.html:60
+msgid "Monday - Friday"
+msgstr "دوشنبه تا جمعه"
+
+#: .\main\templates\main\components\footer.html:69
+msgid "© 2026 Therapist. All rights reserved."
+msgstr "© ۲۰۲۶ درمانگر. تمامی حقوق محفوظ است."
+
+#: .\main\templates\main\components\hero.html:5
+msgid "Professional Psychological Care For A Better Life"
+msgstr "مراقبت حرفه‌ای روان‌شناختی برای زندگی بهتر"
+
+#: .\main\templates\main\components\hero.html:9
+msgid ""
+"Helping you overcome anxiety, stress and life's challenges through "
+"compassionate and evidence-based therapy."
+msgstr "به شما کمک می‌کنم با استفاده از درمانی همدلانه و مبتنی بر شواهد، بر اضطراب، استرس و چالش‌های زندگی غلبه کنید."
+
+#: .\main\templates\main\components\hero.html:25
+msgid "Learn More"
+msgstr "بیشتر بدانید"
+
+#: .\main\templates\main\components\statistics.html:11
+msgid "Therapy Sessions"
+msgstr "جلسات درمان"
+
+#: .\main\templates\main\components\statistics.html:20
+msgid "Client Satisfaction"
+msgstr "رضایت مراجعان"
+
+#: .\main\templates\main\components\statistics.html:29
+msgid "Years Experience"
+msgstr "سال‌ها تجربه"
+
+#: .\main\templates\main\components\statistics.html:38
+msgid "Online Support"
+msgstr "پشتیبانی آنلاین"
+
+#: .\main\templates\main\components\testimonials.html:7
+msgid "What My Clients Say"
+msgstr "مراجعان من چه می‌گویند"
+
+#: .\main\templates\main\components\testimonials.html:11
+msgid "Real experiences from people who chose to take the first step."
+msgstr "تجربه‌های واقعی افرادی که تصمیم گرفتند اولین قدم را بردارند."
+
+#: .\main\templates\main\components\testimonials.html:25
+msgid ""
+"\"Professional, compassionate, and genuinely focused on helping me move "
+"forward.\""
+msgstr "«حرفه‌ای، همدل و واقعاً متمرکز بر کمک به من برای پیشرفت.»"
+
+#: .\main\templates\main\components\testimonials.html:37
+msgid "Therapy Client"
+msgstr "مراجع درمان"
+
+#: .\main\views.py:37
+msgid "This session has just been booked."
+msgstr "این جلسه همین الان رزرو شده است."

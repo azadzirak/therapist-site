@@ -1,6 +1,7 @@
 from django import forms
 from .models import Appointment, TimeSlot
 from django.db.models import Q
+from django.utils.translation import gettext_lazy as _
 
 class AppointmentForm(forms.ModelForm):
 
@@ -12,7 +13,7 @@ class AppointmentForm(forms.ModelForm):
         widgets = {
             "name": forms.TextInput(attrs={
                 "class": "w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500",
-                "placeholder": "Your full name",
+                "placeholder": _("Your full name"),
             }),
 
             "email": forms.EmailInput(attrs={
@@ -32,7 +33,7 @@ class AppointmentForm(forms.ModelForm):
             "message": forms.Textarea(attrs={
                 "class": "w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500",
                 "rows": 5,
-                "placeholder": "Tell me briefly about your situation...",
+                "placeholder": _("Tell me briefly about your situation..."),
             }),
 
         }
@@ -61,7 +62,7 @@ class AppointmentForm(forms.ModelForm):
         if not slot.is_available: 
             self.slot_is_unavailable = True 
             raise forms.ValidationError(
-                "This session is no longer available."
+                _("This session is no longer available.")
             )
         active_appointment_exists = Appointment.objects.filter(
             slot=slot,
@@ -71,7 +72,7 @@ class AppointmentForm(forms.ModelForm):
         if active_appointment_exists:
             self.slot_is_unavailable = True 
             raise forms.ValidationError(
-                "This session has already been booked."
+                _("This session has already been booked.")
             )
         return slot
 

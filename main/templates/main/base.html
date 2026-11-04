@@ -1,29 +1,31 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language as lang %}
+{% get_current_language_bidi as dir %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}" dir="{% if dir %}rtl{% else %}ltr{% endif %}">
 
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>
         {% block title %}{% endblock %}
     </title>
 
-    <link
-        rel="stylesheet"
-        href="{% static 'css/output.css' %}"
-    >
+    <script>
+        const savedTheme = localStorage.getItem("theme") || "light";
 
-    <script
-        src="{% static 'js/main.js' %}"
-        defer
-    ></script>
+        if (savedTheme === "dark") {
+            document.documentElement.classList.add("dark");
+        }
+    </script>
+
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+
+    <script src="{% static 'js/main.js' %}" defer></script>
 </head>
 
 <body>

@@ -1167,6 +1167,22 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
+@font-face {
+  font-family: "Vazirmatn";
+
+  src: url("/public/static/fonts/Vazirmatn[wght].woff2") format("woff2");
+
+  font-weight: 100 900;
+
+  font-style: normal;
+
+  font-display: swap;
+}
+
+html[lang="fa"] {
+  font-family: "Vazirmatn", sans-serif;
+}
+
 .hover\:border-blue-300:hover {
   --tw-border-opacity: 1;
   border-color: rgb(147 197 253 / var(--tw-border-opacity, 1));

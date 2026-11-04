@@ -1,10 +1,23 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import AppointmentForm
 from .models import Service, TimeSlot
 from django.db import transaction
+from django.utils.translation import gettext as _
 
 def home(request):
     services = Service.objects.filter(is_active=True)
+    language = request.LANGUAGE_CODE
+
+    for service in services:
+        if language == "fa":
+            service.display_title = service.title_fa or service.title
+            service.display_description = (
+                service.description_fa or service.description
+            )
+        else: 
+            service.display_title = service.title
+            service.display_description = service.description
+            
     return render(
         request,
         "main/home.html",
@@ -33,7 +46,7 @@ def appointment(request):
                 if not slot.is_available:
                     form.add_error(
                         "slot",
-                        "This session has just been booked."
+                        _("This session has just been booked.")
                     )
                 else:
                     appointment = form.save(commit=False)
