@@ -10,23 +10,31 @@
 
 {% include "main/components/navbar.html" %}
 
-<section class="bg-gray-50 min-h-screen py-16 sm:py-20">
+<section class="bg-gray-50 dark:bg-gray-950 
+                min-h-screen py-16 sm:py-20
+                transition-colors duration-300">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
         <!-- Header -->
          <div class="text-center mb-12">
-            <p class="text-blue-600 font-semibold mb-3">
+            <p class="text-blue-600 dark:text-blue-400 font-semibold mb-3">
                 {% translate "BOOK AN APPOINTMENT" %}
             </p>
-            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">
+            <h1 class="text-4xl sm:text-5xl font-bold 
+                       text-gray-900 dark:text-white">
                 {% translate "Let's Take the First Step" %}
             </h1>
-            <p class="mt-5 text-gray-600 text-lg max-w-2xl mx-auto">
+            <p class="mt-5 text-gray-600 dark:text-gray-300
+                      text-lg max-w-2xl mx-auto">
                 {% translate "Choose an available session and provide your information." %}
                 {% translate "I'll get back to you to confirm your appointment." %}
             </p>
          </div>
          <!-- Form Card -->
-          <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-10">
+          <div class="bg-white dark:bg-gray-900
+                      rounded-2xl shadow-lg 
+                      border border-gray-100 dark:border-gray-800
+                      p-6 sm:p-10
+                      transition-colors duration-300">
             <form method="POST" class="space-y-6">
                 {% csrf_token %}
                 {% if form.errors  %}
@@ -49,7 +57,8 @@
                 {% endif %}
                 <!-- Name -->
                  <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                    <label class="block text-sm font-semibold
+                                  text-gray-700 dark:text-gray-200 mb-2">
                         {% translate "Full Name" %}
                     </label>
                     {{ form.name }}
@@ -61,7 +70,8 @@
                  </div>
                  <!-- Email -->
                   <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                    <label class="block text-sm font-semibold 
+                                  text-gray-700 dark:text-gray-200 mb-2">
                         {% translate "Email Address" %}
                     </label>
                     {{ form.email }}
@@ -73,7 +83,8 @@
                   </div>
                   <!-- Phone -->
                    <div> 
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                    <label class="block text-sm font-semibold 
+                                  text-gray-700 dark:text-gray-200 mb-2">
                         {% translate "Phone Number" %}
                     </label>
                     {{ form.phone }}
@@ -85,10 +96,11 @@
                    </div>
                    <!-- Time Slot -->
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                        <label class="block text-sm font-semibold 
+                                      text-gray-700 dark:text-gray-200 mb-2">
                             {% translate "Choose Your Session" %}
                         </label>
-                        <p class="text-sm text-gray-500 mb-5">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-5">
                             {% translate "Select an available session that works best for you." %}
                         </p>
                         
@@ -108,8 +120,8 @@
                                 >
                                 <!-- Card -->
                                 <div class="
-                                    bg-white
-                                    border border-gray-200 
+                                    bg-white dark:bg-gray-800
+                                    border border-gray-200 dark:border-gray-700
                                     rounded-xl 
                                     p-5 
                                     transition-all duration-200 
@@ -124,19 +136,13 @@
                                         cursor-pointer
                                         peer-checked:border-blue-500 
                                         peer-checked:bg-blue-50 
+                                        dark:peer-checked:bg-blue-950
                                         peer-checked:ring-2 
                                         peer-checked:ring-blue-500 
                                     {% endif %}
                                 ">
                             
                                 <!-- Day -->
-                                <!-- <p class="
-                                    text-sm
-                                    font-semibold
-                                    text-blue-600
-                                ">
-                                    {{ slot.date|date:"l" }}
-                                </p> -->
                                 <p class="text-sm font-semibold text-blue-600">
                                     {% if CURRENT_LANGUAGE == "fa" %}
                                         {{ slot.date|jalali_weekday }}
@@ -144,23 +150,16 @@
                                         {{ slot.date|date:"l" }}
                                     {% endif %}
                                 </p>
-                                <!-- Date -->
-                                <!-- <p class="
-                                    mt-1 
-                                    text-xl 
-                                    font-bold 
-                                    text-gray-900 
-                                ">
-                                    {{ slot.date|date:"F j, Y" }}
 
-                                </p> -->
-                                <p class="mt-1 text-xl font-bold text-gray-900">
+                                <!-- Date -->
+                                <p class="mt-1 text-xl font-bold text-gray-900 dark:text-white">
                                     {% if CURRENT_LANGUAGE == "fa" %}
                                         {{ slot.date|jalali_date }}
                                     {% else %}
                                         {{ slot.date|date:"F j, Y" }}
                                     {% endif %}
                                 </p>
+
                                 <!-- Time -->
                                 <div class="
                                     flex 
@@ -171,16 +170,7 @@
                                     <span class="text-lg">
                                         🕐
                                     </span>
-                                    <!-- <span class="
-                                        text-sm 
-                                        font-medium 
-                                        text-gray-700 
-                                    ">
-                                    {{ slot.start_time|time:"g:i A" }}
-                                    - 
-                                    {{ slot.end_time|time:"g:i A" }}
-                                    </span> -->
-                                    <span class="text-sm font-medium text-gray-700" dir="ltr">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300" dir="ltr">
                                         {% if CURRENT_LANGUAGE == "fa" %}
                                             {{ slot.start_time|time:"H:i"|persian_digits }}
                                             -
@@ -192,24 +182,26 @@
                                         {% endif %}
                                     </span>
                                 </div> 
+
                                 <!-- Availability -->
                                 <div class="
                                     mt-4 
                                     pt-3 
                                     border-t 
-                                    border-gray-100     
+                                    border-gray-100 dark:border-gray-700    
                                 ">
                                     {% if form.slot_is_unavailable and form.data.slot == slot.id|stringformat:"s" %}
-                                        <span class="text-xs font-medium text-red-500">
+                                        <span class="text-xs font-medium text-red-500 dark:text-gray-400">
                                             {% translate "No Longer Available" %}
                                         </span>
                                     {% else %}
-                                        <span class="text-xs font-medium text-gray-500">
+                                        <span class="text-xs font-medium text-gray-500 dark:text-gray-400">
                                             {% translate "Available Session" %}
                                         </span>
                                     {% endif %}
                             </div>
                         </div>
+
                             <!-- Selected Indicator -->
                             <div class="
                                 absolute 
@@ -242,8 +234,6 @@
                             </p>
                         </div>        
                     {% endfor %}
-
-                        
 
                     </div>
 
@@ -284,7 +274,7 @@
             </form>
           </div>
           <!-- Small reassurance -->
-           <p class="text-center text-sm text-gray-500 mt-6">
+           <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
             {% translate "Your information will be kept private and confidential." %}
            </p>
     </div>

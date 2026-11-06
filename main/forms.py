@@ -12,17 +12,47 @@ class AppointmentForm(forms.ModelForm):
 
         widgets = {
             "name": forms.TextInput(attrs={
-                "class": "w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500",
+                "class": """
+                    w-full
+                    bg-white dark:bg-gray-800
+                    text-gray dark:text-gray-100
+                    placeholder-gray-400 dark:placeholder-gray-500
+                    border border-gray-300 dark:border-gray-700
+                    rounded-lg px-4 py-3
+                    focus:outline-none
+                    focus:ring-2 focus:ring-blue-500
+                    transition-colors dueation-200
+                """,
                 "placeholder": _("Your full name"),
             }),
 
             "email": forms.EmailInput(attrs={
-                "class": "w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500",
+                "class": """
+                    w-full
+                    bg-white dark:bg-gray-800
+                    text-gray dark:text-gray-100
+                    placeholder-gray-400 dark:placeholder-gray-500
+                    border border-gray-300 dark:border-gray-700
+                    rounded-lg px-4 py-3
+                    focus:outline-none
+                    focus:ring-2 focus:ring-blue-500
+                    transition-colors dueation-200
+                """,
                 "placeholder": "you@example.com",
             }),
 
             "phone": forms.TextInput(attrs={
-                "class": "w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500",
+                "class": """
+                    w-full
+                    bg-white dark:bg-gray-800
+                    text-gray dark:text-gray-100
+                    placeholder-gray-400 dark:placeholder-gray-500
+                    border border-gray-300 dark:border-gray-700
+                    rounded-lg px-4 py-3
+                    focus:outline-none
+                    focus:ring-2 focus:ring-blue-500
+                    transition-colors dueation-200
+                """,
                 "placeholder": "+1 234 567 890",
             }),
 

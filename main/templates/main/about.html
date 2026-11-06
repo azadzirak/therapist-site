@@ -9,7 +9,9 @@
 
 {% include "main/components/navbar.html" %}
 
-<section class="bg-gray-50 py-16 sm:py-20 min-h-screen">
+<section class="bg-gray-50 dark:bg-gray-950
+                py-16 sm:py-20 min-h-screen 
+                transition-colors duration-300">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
 
         <!-- Header -->
@@ -18,7 +20,8 @@
                 {% translate "ABOUT THE THERAPIST" %}
             </p>
 
-            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">
+            <h1 class="text-4xl sm:text-5xl font-bold 
+                       text-gray-900 dark:text-gray-100">
                 {% translate "A Safe Space to Understand, Heal, and Grow" %}
             </h1>
 
@@ -29,12 +32,18 @@
         </div>
 
         <!-- Main Card -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-10">
+        <div class="bg-white dark:bg-gray-900
+                    rounded-2xl shadow-sm
+                    border border-gray-100 dark:border-gray-800
+                    p-6 sm:p-10
+                    transition-colors duration-300">
 
             <div class="grid md:grid-cols-2 gap-10 items-center">
 
                 <!-- Image Placeholder -->
-                <div class="bg-gray-100 rounded-xl h-80 flex items-center justify-center">
+                <div class="bg-gray-100 dark:bg-gray-800 
+                            rounded-xl h-80 flex items-center
+                            justify-center transition-colors duration-300">
                     <span class="text-gray-400 text-sm">
                         {% translate "Therapist Photo" %}
                     </span>
@@ -42,17 +51,18 @@
 
                 <!-- Content -->
                 <div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">
+                    <h2 class="text-2xl sm:text-3xl font-bold
+                               text-gray-900 dark:text-gray-100 mb-5">
                         {% translate "My Approach" %}
                     </h2>
 
-                    <p class="text-gray-600 leading-relaxed mb-4">
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
                         {% translate "I believe therapy should provide a safe and supportive" %}
                         {% translate "environment where you can better understand yourself," %}
                         {% translate "explore your experiences, and work toward meaningful change." %}
                     </p>
 
-                    <p class="text-gray-600 leading-relaxed mb-6">
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
                         {% translate "Through a compassionate and personalized approach," %}
                         {% translate "I work with clients to navigate challenges such as" %}
                         {% translate "anxiety, stress, and difficult life experiences." %}

@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from .forms import AppointmentForm
-from .models import Service, TimeSlot
+from .models import Appointment, Service, TimeSlot
 from django.db import transaction
 from django.utils.translation import gettext as _
 
@@ -56,13 +56,9 @@ def appointment(request):
                     slot.is_available = False
                     slot.save()
 
-                    return render(
-                        request,
-                        "main/appointment_success.html",
-                        {
-                            "appointment": appointment
-                        }
-                    )
+                    request.session["last_appointment_id"] = appointment.pk
+
+                    return redirect("appointment_success")
 
     else:
         form = AppointmentForm()
@@ -73,3 +69,19 @@ def appointment(request):
         {"form": form}
     )
 
+def appointment_success(request):
+    appointment_id = request.session.get("last_appointment_id")
+
+    if not appointment_id:
+        return redirect("appointment")
+
+    appointment = get_object_or_404(
+        Appointment,
+        pk=appointment_id
+    )
+
+    return render(
+        request,
+        "main/appointment_success.html",
+        {"appointment": appointment}
+    )

@@ -1,45 +1,105 @@
 {% extends "main/base.html" %}
-{% load i18n %}
+{% load i18n jalali %}
 
 {% block title %}
-{% translate "Appointment Confirmed" %}
+    {% translate "Appointment Confirmed" %}
 {% endblock %}
 
 {% block content %}
 
-<section class="max-w-3xl mx-auto px-6 py-20">
-    <div class="bg-white shadow-lg rounded-xl p-10 text-center">
-        <div class="text-5xl mb-6">
-            ✅
+{% get_current_language as CURRENT_LANGUAGE %}
+
+{% include "main/components/navbar.html" %}
+
+<section class="min-h-screen bg-gray-50 dark:bg-gray-950
+                py-16 sm:py-20 px-4
+                flex items-center justify-center
+                transition-colors duration-300">
+
+    <div class="max-w-2xl w-full">
+
+        <div class="bg-white dark:bg-gray-900
+                    border border-gray-100 dark:border-gray-800
+                    shadow-lg rounded-2xl
+                    p-6 sm:p-10 text-center">
+
+            <div class="text-5xl mb-6">
+                ✅
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl font-bold
+                       text-gray-900 dark:text-gray-100 mb-4">
+                {% translate "Appointment Submitted Successfully" %}
+            </h1>
+
+            <p class="text-gray-600 dark:text-gray-300 mb-8">
+                {% translate "Thank you for contacting us." %}
+                {% translate "Your appointment request has been received." %}
+            </p>
+
+            <div class="bg-gray-50 dark:bg-gray-800
+                        border border-gray-100 dark:border-gray-700
+                        rounded-xl p-6 mb-8 text-start space-y-4
+                        {% if CURRENT_LANGUAGE == 'fa' %}text-right{% else %}text-left{% endif %}"
+                    dir="{% if CURRENT_LANGUAGE == 'fa' %}rtl{% else %}ltr{% endif %}">
+
+                <p class="text-gray-700 dark:text-gray-200">
+                    <strong>{% translate "Name:" %}</strong>
+                    {{ appointment.name }}
+                </p>
+
+                <div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">
+                        {% translate "Date:" %}
+                    </p>
+
+                    <p class="font-semibold text-gray-900 dark:text-gray-100">
+
+                        {% if CURRENT_LANGUAGE == "fa" %}
+                            {{ appointment.slot.date|jalali_weekday }}
+                            {{ appointment.slot.date|jalali_date }}
+                        {% else %}
+                            {{ appointment.slot.date|date:"l, F j, Y" }}
+                        {% endif %}
+
+                    </p>
+                </div>
+
+                <div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">
+                        {% translate "Time:" %}
+                    </p>
+
+                    <p class="font-semibold text-gray-900 dark:text-gray-100
+                            {%  if CURRENT_LANGUAGE == 'fa' %}text-right{% else %}text-left{% endif %}"
+                       dir="ltr">
+
+                        {% if CURRENT_LANGUAGE == "fa" %}
+                            {{ appointment.slot.start_time|time:"H:i"|persian_digits }}
+                            -
+                            {{ appointment.slot.end_time|time:"H:i"|persian_digits }}
+                        {% else %}
+                            {{ appointment.slot.start_time|time:"g:i A" }}
+                            -
+                            {{ appointment.slot.end_time|time:"g:i A" }}
+                        {% endif %}
+
+                    </p>
+                </div>
+
+            </div>
+
+            <a href="/"
+               class="inline-block bg-blue-600 text-white
+                      px-8 py-3 rounded-xl font-semibold
+                      hover:bg-blue-700 transition">
+                {% translate "Back To Home" %}
+            </a>
+
         </div>
-        <h1 class="text-3xl font-bold mb-4">
-            {% translate "Appointment Submitted Successfully" %}
-        </h1>
-        <p class="text-gray-600 mb-8">
-            {% translate "Thank you for contacting us." %}
-            {% translate "Your appointment request has been received." %}
-        </p>
-        <div class="bg-gray-50 rounded-lg p-6 mb-8 text-left">
-            <p class="mb-3">
-                <strong>{% translate "Name:" %}</strong>
-                {{ appointment.name }}
-            </p>
-            <p class="mb-3">
-                <strong>{% translate "Date:" %}</strong>
-                {{ appointment.slot.date }}
-            </p>
-            <p> 
-                <strong>{% translate "Time:" %}</strong>
-                {{ appointment.slot.start_time }}
-                - 
-                {{ appointment.slot.end_time }}
-            </p>
-        </div>
-        <a href="/"
-           class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
-           {% translate "Back To Home" %}
-        </a>
     </div>
 </section>
+
+{% include "main/components/footer.html" %}
 
 {% endblock %}

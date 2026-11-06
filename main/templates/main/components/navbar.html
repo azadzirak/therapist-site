@@ -1,7 +1,10 @@
 {% load i18n %}
 {% get_current_language as CURRENT_LANGUAGE %}
 
-<nav class="bg-white shadow-sm">
+<nav class="bg-white dark:bg-gray-900
+            border-b border-gray-100 dark:border-gray-800
+            shadow-sm transition-colors duration-300">
+
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4">
 
         <div class="flex justify-between items-center">
@@ -14,36 +17,51 @@
             <div class="hidden md:flex items-center gap-6">
 
                 <a href="/"
-                   class="text-gray-700 hover:text-blue-600 transition-colors">
+                   class="text-gray-700 dark:text-gray-200
+                          hover:text-blue-600 dark:hover:text-blue-400
+                          transition-colors">
                     {% translate "Home" %}
                 </a>
 
                 <a href="/about/"
-                   class="text-gray-700 hover:text-blue-600 transition-colors">
+                   class="text-gray-700 dark:text-gray-200
+                          hover:text-blue-600 dark:hover:text-blue-400
+                          transition-colors">
                     {% translate "About" %}
                 </a>
 
                 <a href="/appointment/"
-                   class="text-gray-700 hover:text-blue-600 transition-colors">
+                   class="text-gray-700 dark:text-gray-200
+                          hover:text-blue-600 dark:hover:text-blue-400
+                          transition-colors">
                     {% translate "Book Appointment" %}
                 </a>
 
-                <span class="h-5 w-px bg-gray-200"></span>
+                <span class="h-5 w-px bg-gray-200 dark:bg-gray-700"></span>
 
                 <form action="{% url 'set_language' %}" method="post">
                     {% csrf_token %}
 
-                    <input type="hidden" name="next"
-                           value="{% if CURRENT_LANGUAGE == 'fa' %}/en/{% else %}/fa/{% endif %}">
+                    <<input type="hidden" name="next" value="{{ request.get_full_path }}">
 
                     <button type="submit" name="language"
                             value="{% if CURRENT_LANGUAGE == 'fa' %}en{% else %}fa{% endif %}"
-                            class="text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors rounded-md px-2 py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+                            class="text-sm font-medium text-gray-500 dark:text-gray-300
+                                   hover:text-blue-600 dark:hover:text-blue-400
+                                   transition-colors rounded-md px-2 py-1
+                                   focus-visible:outline-none
+                                   focus-visible:ring-2 focus-visible:ring-blue-500">
+
                         {% if CURRENT_LANGUAGE == "fa" %}
-                            <span lang="en" class="language-switch-en">Change language to English</span>
+                            <span lang="en" class="language-switch-en">
+                                Change language to English
+                            </span>
                         {% else %}
-                            <span lang="fa" class="language-switch-fa">تغییر زبان به فارسی</span>
+                            <span lang="fa" class="language-switch-fa">
+                                تغییر زبان به فارسی
+                            </span>
                         {% endif %}
+
                     </button>
                 </form>
 
@@ -52,9 +70,14 @@
                         data-theme-toggle
                         aria-label="Toggle color theme"
                         title="Toggle color theme"
-                        class="p-2 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+                        class="p-2 rounded-lg
+                               text-gray-600 dark:text-gray-300
+                               hover:bg-gray-100 dark:hover:bg-gray-800
+                               hover:text-blue-600 dark:hover:text-blue-400
+                               transition-colors
+                               focus-visible:outline-none
+                               focus-visible:ring-2 focus-visible:ring-blue-500">
 
-                    <!-- Sun -->
                     <svg class="w-5 h-5 dark:hidden"
                          xmlns="http://www.w3.org/2000/svg"
                          fill="none" viewBox="0 0 24 24"
@@ -64,7 +87,6 @@
                               d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>
                     </svg>
 
-                    <!-- Moon -->
                     <svg class="hidden w-5 h-5 dark:block"
                          xmlns="http://www.w3.org/2000/svg"
                          fill="none" viewBox="0 0 24 24"
@@ -73,13 +95,17 @@
                               stroke-linejoin="round"
                               d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"/>
                     </svg>
+
                 </button>
 
             </div>
 
             <!-- Mobile Menu Button -->
             <button id="menu-button"
-                    class="md:hidden text-2xl text-gray-700"
+                    class="md:hidden text-2xl
+                           text-gray-700 dark:text-gray-200
+                           hover:text-blue-600 dark:hover:text-blue-400
+                           transition-colors"
                     type="button"
                     aria-label="Toggle navigation">
                 ☰
@@ -89,17 +115,25 @@
 
         <!-- Mobile Navigation -->
         <div id="mobile-menu"
-             class="hidden md:hidden mt-4 border-t border-gray-100 pt-4 space-y-4">
+             class="hidden md:hidden mt-4
+                    border-t border-gray-100 dark:border-gray-800
+                    pt-4 space-y-4">
 
-            <a href="/" class="block text-gray-700 hover:text-blue-600">
+            <a href="/"
+               class="block text-gray-700 dark:text-gray-200
+                      hover:text-blue-600 dark:hover:text-blue-400">
                 {% translate "Home" %}
             </a>
 
-            <a href="/about/" class="block text-gray-700 hover:text-blue-600">
+            <a href="/about/"
+               class="block text-gray-700 dark:text-gray-200
+                      hover:text-blue-600 dark:hover:text-blue-400">
                 {% translate "About" %}
             </a>
 
-            <a href="/appointment/" class="block text-gray-700 hover:text-blue-600">
+            <a href="/appointment/"
+               class="block text-gray-700 dark:text-gray-200
+                      hover:text-blue-600 dark:hover:text-blue-400">
                 {% translate "Book Appointment" %}
             </a>
 
@@ -108,17 +142,25 @@
                 <form action="{% url 'set_language' %}" method="post">
                     {% csrf_token %}
 
-                    <input type="hidden" name="next"
-                           value="{% if CURRENT_LANGUAGE == 'fa' %}/en/{% else %}/fa/{% endif %}">
+                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
 
                     <button type="submit" name="language"
                             value="{% if CURRENT_LANGUAGE == 'fa' %}en{% else %}fa{% endif %}"
-                            class="text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors rounded-md px-2 py-1">
+                            class="text-sm font-medium
+                                   text-gray-500 dark:text-gray-300
+                                   hover:text-blue-600 dark:hover:text-blue-400
+                                   transition-colors rounded-md px-2 py-1">
+
                         {% if CURRENT_LANGUAGE == "fa" %}
-                            <span lang="en" class="language-switch-en">Change language to English</span>
+                            <span lang="en" class="language-switch-en">
+                                Change language to English
+                            </span>
                         {% else %}
-                            <span lang="fa" class="language-switch-fa">تغییر زبان به فارسی</span>
+                            <span lang="fa" class="language-switch-fa">
+                                تغییر زبان به فارسی
+                            </span>
                         {% endif %}
+
                     </button>
                 </form>
 
@@ -126,7 +168,11 @@
                         data-theme-toggle
                         aria-label="Toggle color theme"
                         title="Toggle color theme"
-                        class="p-2 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-blue-600 transition-colors">
+                        class="p-2 rounded-lg
+                               text-gray-600 dark:text-gray-300
+                               hover:bg-gray-100 dark:hover:bg-gray-800
+                               hover:text-blue-600 dark:hover:text-blue-400
+                               transition-colors">
 
                     <svg class="w-5 h-5 dark:hidden"
                          xmlns="http://www.w3.org/2000/svg"
@@ -145,6 +191,7 @@
                               stroke-linejoin="round"
                               d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"/>
                     </svg>
+
                 </button>
 
             </div>
